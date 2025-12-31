@@ -21,14 +21,14 @@ def main(args):
   cavs_dir = os.path.join(args.working_dir, 'cavs/')
   activations_dir = os.path.join(args.working_dir, 'acts/')
   results_summaries_dir = os.path.join(args.working_dir, 'results_summaries/')
-  if tf.gfile.Exists(args.working_dir):
-    tf.gfile.DeleteRecursively(args.working_dir)
-  tf.gfile.MakeDirs(args.working_dir)
-  tf.gfile.MakeDirs(discovered_concepts_dir)
-  tf.gfile.MakeDirs(results_dir)
-  tf.gfile.MakeDirs(cavs_dir)
-  tf.gfile.MakeDirs(activations_dir)
-  tf.gfile.MakeDirs(results_summaries_dir)
+  if tf.io.gfile.exists(args.working_dir):
+    tf.io.gfile.rmtree(args.working_dir)
+  tf.io.gfile.makedirs(args.working_dir)
+  tf.io.gfile.makedirs(discovered_concepts_dir)
+  tf.io.gfile.makedirs(results_dir)
+  tf.io.gfile.makedirs(cavs_dir)
+  tf.io.gfile.makedirs(activations_dir)
+  tf.io.gfile.makedirs(results_summaries_dir)
   random_concept = 'random_discovery'  # Random concept for statistical testing
   sess = utils.create_session()
   mymodel = ace_helpers.make_model(
@@ -53,7 +53,7 @@ def main(args):
   cd.create_patches(param_dict={'n_segments': [15, 50, 80]})
   # Saving the concept discovery target class images
   image_dir = os.path.join(discovered_concepts_dir, 'images')
-  tf.gfile.MakeDirs(image_dir)
+  tf.io.gfile.makedirs(image_dir)
   ace_helpers.save_images(image_dir,
                             (cd.discovery_images * 256).astype(np.uint8))
   # Discovering Concepts
@@ -95,13 +95,13 @@ def parse_arguments(argv):
                       default='mixed4c')
   parser.add_argument('--num_random_exp', type=int,
       help="Number of random experiments used for statistical testing, etc",
-                      default=20)
+                      default=19)
   parser.add_argument('--max_imgs', type=int,
       help="Maximum number of images in a discovered concept",
-                      default=40)
+                      default=30)
   parser.add_argument('--min_imgs', type=int,
       help="Minimum number of images in a discovered concept",
-                      default=40)
+                      default=30)
   parser.add_argument('--num_parallel_workers', type=int,
       help="Number of parallel jobs.",
                       default=0)
