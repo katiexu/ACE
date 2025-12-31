@@ -1,4 +1,9 @@
 # ACE
+## How to run an experiment?
+1) Use Python version 3.8.x
+2) Set up Conda environment: pip install -r requirements.txt
+3) Download image folders from link:, and same them under ImageNet folder.
+4) Run _ace_run.py_
 
 ACE: Towards Automatic Concept Based Explanations
 
