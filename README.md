@@ -3,7 +3,7 @@
 1) Download the master branch.
 2) Use Python version 3.8.x
 3) Set up Conda environment: pip install -r requirements.txt
-4) Create a folder called 'ImageNet'. Download image folders from link: https://drive.google.com/drive/folders/13I5rcmhyUKWab98fWohCsWxRSInS1wR-?usp=drive_link, and same them under 'ImageNet' folder.
+4) Create a folder named 'ImageNet'. Download image folders from Google Drive link: https://drive.google.com/drive/folders/13I5rcmhyUKWab98fWohCsWxRSInS1wR-?usp=drive_link, and save them under the 'ImageNet' folder.
 6) Run _ace_run.py_
 
 ACE: Towards Automatic Concept Based Explanations
